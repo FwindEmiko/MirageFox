@@ -1,0 +1,44 @@
+plugins {
+    id 'java'
+    id 'com.gradleup.shadow' version '8.3.5' apply false
+}
+
+group = 'top.miragedge'
+version = '1.0.0'
+description = 'MirageFox - AI agent fox spirit for MiragEdge server'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+}
+
+repositories {
+    mavenCentral()
+    maven { url = 'https://repo.papermc.io/repository/maven-public/' }
+    maven { url = 'https://repo.extendedclip.com/content/repositories/placeholderapi/' }
+    maven { url = 'https://jitpack.io' }
+}
+
+dependencies {
+    // Paper API（编译期，provided，不打进 jar）
+    compileOnly 'io.papermc.paper:paper-api:1.21.4-R0.1-SNAPSHOT'
+    // Gson（Paper 自带，编译期 provided）
+    compileOnly 'com.google.code.gson:gson:2.11.0'
+    // PlaceholderAPI（软依赖，provided，不打进 jar）
+    compileOnly 'me.clip:placeholderapi:2.11.6'
+    // VaultAPI（软依赖，经济系统）
+    compileOnly 'com.github.MilkBowl:VaultAPI:1.7.1'
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+processResources {
+    filesMatching('plugin.yml') {
+        expand 'version': project.version
+    }
+}

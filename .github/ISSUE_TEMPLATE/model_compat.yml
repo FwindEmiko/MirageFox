@@ -1,0 +1,59 @@
+name: Model compatibility report
+description: Report whether a model works with MirageFox's tool calling
+labels: ["model-compatibility"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Tool-calling behaviour differs a lot between model vendors, and we can't test them all.
+        A short report here directly improves the compatibility matrix — thank you.
+
+        **Never paste your API key or full endpoint URL.**
+  - type: input
+    id: model
+    attributes:
+      label: Model ID
+      placeholder: "glm-5.3 / deepseek-flash / claude-sonnet-5-5"
+    validations:
+      required: true
+  - type: dropdown
+    id: endpoint
+    attributes:
+      label: Endpoint type
+      options:
+        - Official vendor API
+        - Self-hosted (vLLM / Ollama / llama.cpp)
+        - Relay or gateway
+        - Other
+    validations:
+      required: true
+  - type: dropdown
+    id: verdict
+    attributes:
+      label: Overall result
+      options:
+        - Works well — tools called correctly, replies natural
+        - Works with caveats
+        - Partially broken
+        - Does not work
+    validations:
+      required: true
+  - type: checkboxes
+    id: behaviours
+    attributes:
+      label: Which behaviours did you observe
+      options:
+        - label: Selects the right tool for the intent
+        - label: Sends correct JSON arguments
+        - label: Handles multiple tool rounds in one turn
+        - label: Occasionally invents tool names or parameters
+        - label: Ignores the "reply in one or two sentences" instruction
+        - label: Breaks character or follows injected player instructions
+        - label: Leaks raw tool-call syntax into the chat message
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Anything notable — settings that helped, errors in logs, latency.
+    validations:
+      required: false

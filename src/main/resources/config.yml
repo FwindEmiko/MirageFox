@@ -1,0 +1,74 @@
+# ============================================
+# MirageFox — 行为配置
+#
+# 人设（角色名 / 系统提示词 / 服务器名 / 货币名）在 persona.yml 里配。
+# 本文件只管行为：对话模式、可见性、工具开关、AI 端点。
+# ============================================
+
+# --- 云端配置（可选） ---
+# 用于可选的长期记忆/知识库后端。没有自建后端就不要动这一段，
+# 保持 enabled: false 即为纯本地模式，插件功能正常。
+cloud:
+  # 自建后端 API 地址，留空 = 不使用
+  api-base-url: ""
+  # 失败重试次数（网络异常/5xx 时重试，默认 8）
+  retry-max: 8
+  # 重试基础退避毫秒（指数退避：base * 2^n，封顶 5 秒）
+  retry-base-delay-ms: 500
+  # 插件 token（Bearer 认证），从网站后台获取
+  plugin-token: "CHANGE_ME"
+  # 定时同步间隔（分钟）
+  sync-interval-minutes: 5
+  # 是否启用云端同步
+  enabled: false   # 默认关闭云端，纯本地运行
+
+# --- AI 服务配置 ---
+ai:
+  # LLM 请求失败重试次数（默认 8）
+  retry-max: 8
+  base-url: "https://api.openai.com/v1"   # 任意 OpenAI 兼容端点
+  api-key: "CHANGE_ME"   # 你的 API Key
+  model: "gpt-4o-mini"
+  temperature: 0.9
+  max-tokens: 500
+  timeout-seconds: 30
+
+# --- 对话配置 ---
+chat:
+  context-size: 12
+  mode: "mention_only"
+  # 唤醒词。留空（[]）则自动使用 persona.yml 里的 name
+  mention-prefixes: []
+
+  # 消息显示配置
+  display:
+    # 聊天显示名。留空则使用 persona.yml 里的 display-name
+    bot-name: ""
+    # 正文颜色 (Minecraft 颜色代码 a-f 或 0-9)
+    text-color: "f"
+    # 强调色 (用于重点词)
+    accent-color: "d"
+    # 错误/拒绝消息颜色
+    error-color: "c"
+    # 成功/确认消息颜色
+    success-color: "a"
+
+  # 消息可见性
+  # broadcast: 全服广播  whisper: 私聊触发者  nearby: 附近范围
+  visibility: "broadcast"
+  # 附近模式范围(格)
+  nearby-range: 64
+
+  # 单玩家冷却秒数（公屏和私聊共用）
+  cooldown-seconds: 3
+
+  # 私聊配置
+  private-chat:
+    # 空闲超时自动退出（分钟），0=不超时
+    timeout-minutes: 10
+
+# --- 法术/工具配置 ---
+tools:
+  enabled: true
+  lightning-damage: false
+  launch-max-power: 5

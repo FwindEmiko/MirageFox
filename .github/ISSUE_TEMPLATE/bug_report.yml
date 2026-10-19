@@ -1,0 +1,86 @@
+name: Bug report
+description: Something behaves differently than documented
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the report. **Do not paste API keys, server addresses or player data.**
+        If this is a security issue, please use the Security tab instead of this form.
+  - type: input
+    id: plugin-version
+    attributes:
+      label: MirageFox version
+      placeholder: "0.1.0"
+    validations:
+      required: true
+  - type: input
+    id: server
+    attributes:
+      label: Server platform and version
+      placeholder: "Paper 1.21.4 / Leaf 1.21.6"
+    validations:
+      required: true
+  - type: input
+    id: java
+    attributes:
+      label: Java version
+      placeholder: "21.0.11"
+    validations:
+      required: true
+  - type: input
+    id: model
+    attributes:
+      label: Model and endpoint type
+      description: Which model ID, and what kind of endpoint (official API / self-hosted / relay).
+      placeholder: "gpt-4o-mini via official OpenAI API"
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Where does it happen
+      options:
+        - Chat — the companion does not reply
+        - Chat — reply is wrong or malformed
+        - Tools — tool is not called
+        - Tools — tool is called but the effect is wrong
+        - Context — memory or conversation state is wrong
+        - Config — a setting does not take effect
+        - Build or startup error
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Say "..." in chat
+        2. Tool X is called
+        3. Nothing happens
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behaviour
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log lines
+      description: Redact keys, IPs and player names where needed.
+      render: shell
+    validations:
+      required: false
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I removed all credentials and private server details from this report
+          required: true
+        - label: I reproduced this on the latest release
+          required: false

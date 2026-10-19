@@ -1,0 +1,33 @@
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+.settings/
+.classpath
+.project
+
+# Server runtime (local testing)
+run/
+server/
+logs/
+
+# Secrets — never commit real keys
+config.local.yml
+*.local.yml
+.env
+.env.*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# JVM
+hs_err_pid*.log
+replay_pid*.log

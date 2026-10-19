@@ -1,0 +1,27 @@
+name: MirageFox
+version: '${version}'
+main: top.miragedge.miragefox.MirageFox
+api-version: '1.21'
+author: FwindEmiko (FCelestial)
+description: An LLM-driven companion for Minecraft servers — function calling, 22 server-side tools, any OpenAI-compatible endpoint.
+website: https://github.com/FwindEmiko/MirageFox
+
+softdepend: [PlaceholderAPI, Vault]
+
+commands:
+  miragefox:
+    description: MirageFox administration command
+    aliases: [fox]
+    permission: miragefox.admin
+    usage: /<command> [reload|toggle|reset|status|admin]
+
+permissions:
+  miragefox.admin:
+    description: 管理 MirageFox 插件（reload/toggle/reset/status）
+    default: op
+  miragefox.talk:
+    description: 和星玖聊天（在聊天中提及星玖时触发 AI 回应）
+    default: true
+  miragefox.pluginchat:
+    description: 使用 pluginchat / broadcast 命令触发AI消息
+    default: op
