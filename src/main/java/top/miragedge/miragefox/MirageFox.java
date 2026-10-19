@@ -222,7 +222,6 @@ public class MirageFox extends JavaPlugin {
         toolRegistry.register(new SearchDocsTool(this));
         toolRegistry.register(new AdjustFavorabilityTool(this));
         toolRegistry.register(new RememberPlayerTool(this));
-        toolRegistry.register(new RecallPlayerTool(this));
         toolRegistry.register(new SearchConversationsTool(this));
     }
 

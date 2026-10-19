@@ -3,7 +3,7 @@ version: '${version}'
 main: top.miragedge.miragefox.MirageFox
 api-version: '1.21'
 author: FwindEmiko (FCelestial)
-description: An LLM-driven companion for Minecraft servers — function calling, 22 server-side tools, any OpenAI-compatible endpoint.
+description: An LLM-driven companion for Minecraft servers — function calling, 21 server-side tools, any OpenAI-compatible endpoint.
 website: https://github.com/FwindEmiko/MirageFox
 
 softdepend: [PlaceholderAPI, Vault]

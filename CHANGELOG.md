@@ -28,7 +28,7 @@ First public snapshot of the plugin as it runs in production.
 
 ### Added
 - OpenAI-compatible function-calling loop with up to 5 tool rounds per turn
-- 22 server-side tools: weather, time, particles, fireworks, titles, sounds, healing, feeding,
+- 21 server-side tools: weather, time, particles, fireworks, titles, sounds, healing, feeding,
   potion effects, launching, lightning, mob summoning, random teleport, recall, whisper,
   high-five, player info, player list, memory write, affinity, doc search, conversation search
 - Per-player conversation context with cross-player isolation
@@ -39,6 +39,10 @@ First public snapshot of the plugin as it runs in production.
 - Vault economy integration with per-tool pricing and automatic refund on failure
 - Input sanitisation and prompt-injection guards
 - Config validation with safe fallbacks for every value
+
+### Removed
+- `recall_player` placeholder tool — it had no implementation (memory is injected into context
+  automatically), and exposing a no-op tool only wastes a model turn
 
 ### Security
 - Tool whitelist; unknown tool calls rejected

@@ -2,7 +2,7 @@
 
 **Put an AI companion in your Minecraft server that can actually do things.**
 
-MirageFox is a Paper plugin that gives your server a persistent character. Players talk to it in chat; a language model answers and calls **22 server-side tools** through OpenAI-style function calling — change the weather, spawn fireworks, heal a player, summon a mob. Every action runs inside your server process, under your permission model, with your own API key and any OpenAI-compatible endpoint.
+MirageFox is a Paper plugin that gives your server a persistent character. Players talk to it in chat; a language model answers and calls **21 server-side tools** through OpenAI-style function calling — change the weather, spawn fireworks, heal a player, summon a mob. Every action runs inside your server process, under your permission model, with your own API key and any OpenAI-compatible endpoint.
 
 No bot account. No gateway. No third-party memory service.
 
@@ -30,7 +30,7 @@ MirageFox takes a fourth path: **the model thinks remotely, the actions run loca
 ## Features
 
 - **Function calling, not text parsing.** The model picks from a registry of typed tools; unknown calls are rejected.
-- **22 built-in tools** across world, player, entity, info and memory categories.
+- **21 built-in tools** across world, player, entity, info and memory categories.
 - **Per-player context isolation** — one player's chat cannot bleed into another's session.
 - **Private chat sessions** with independent context and idle timeout.
 - **Any OpenAI-compatible endpoint** — OpenAI, self-hosted vLLM, or a relay that speaks the same protocol.
@@ -191,7 +191,7 @@ The returned `CompletableFuture` completes off the main thread — hop back with
 
 ## Roadmap
 
-- [x] **v0.1** — function-calling core, 22 tools, per-player context, private chat, editable persona *(in production)*
+- [x] **v0.1** — function-calling core, 21 tools, per-player context, private chat, editable persona *(in production)*
 - [ ] **v0.2** — local-first storage, `/fox doctor` self-check, first-run guide, cloud migration
 - [ ] **v0.3** — public tool SPI with per-tool permissions, multi-provider failover, usage accounting
 - [ ] **v1.0** — bilingual docs site, Modrinth / Hangar release, demo server
@@ -221,7 +221,7 @@ MIT — see [`LICENSE`](LICENSE).
 
 **给 Minecraft 服务器一个真的会做事、不只是会聊天的 AI 伙伴。**
 
-MirageFox 是一个 Paper 插件。玩家在聊天里叫它的名字，它用大模型回话，并通过 OpenAI 风格的 function calling 调用 **22 个服务端工具**——改天气、放烟花、给玩家治疗、召唤生物。所有动作都在你的服务器进程内执行，走你的权限系统，用你自己配置的 API Key 和任意 OpenAI 兼容端点。
+MirageFox 是一个 Paper 插件。玩家在聊天里叫它的名字，它用大模型回话，并通过 OpenAI 风格的 function calling 调用 **21 个服务端工具**——改天气、放烟花、给玩家治疗、召唤生物。所有动作都在你的服务器进程内执行，走你的权限系统，用你自己配置的 API Key 和任意 OpenAI 兼容端点。
 
 不需要机器人账号，不需要网关，玩家聊天不经过第三方记忆服务。
 
@@ -238,7 +238,7 @@ MirageFox 走第四条路：**模型在远端思考，动作在本地执行。**
 ### 功能
 
 - **function calling，不是文本解析**：模型从类型化工具注册表里挑工具，未注册的调用直接拒绝
-- **22 个内置工具**：世界、玩家、实体、信息、记忆五类
+- **21 个内置工具**：世界、玩家、实体、信息、记忆五类
 - **按玩家隔离上下文**：A 玩家的聊天不会污染 B 玩家的会话
 - **私聊模式**：独立上下文 + 空闲超时
 - **任意 OpenAI 兼容端点**：官方、自建 vLLM、各种中转都可以
@@ -299,7 +299,7 @@ api.sendPluginMessage(player, "玩家刚完成新手引导，恭喜他一下。"
 
 ### 路线图
 
-- [x] **v0.1** — function calling 核心、22 个工具、按玩家隔离上下文、私聊、可编辑人设（已在生产运行）
+- [x] **v0.1** — function calling 核心、21 个工具、按玩家隔离上下文、私聊、可编辑人设（已在生产运行）
 - [ ] **v0.2** — 本地优先存储、`/fox doctor` 自检、首次启动向导、云端数据迁移
 - [ ] **v0.3** — 公开工具 SPI（工具级权限/冷却/审计）、多端点故障切换、用量统计
 - [ ] **v1.0** — 中英双语文档站、Modrinth / Hangar 发布、公开演示服
